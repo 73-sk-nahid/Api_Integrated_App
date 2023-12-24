@@ -2,6 +2,7 @@ package com.example.location_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,17 +28,26 @@ import java.io.StringReader;
 public class MainActivity extends AppCompatActivity {
     EditText et;
     Button bt;
-    TextView tv;
-    private String url = "http://ip-api.com/json/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         et = findViewById(R.id.editTextText2);
         bt = findViewById(R.id.button);
-        tv = findViewById(R.id.textView3);
+
+
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String IP = et.getText().toString().trim();
+                Log.d("IP", IP);
+                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                intent.putExtra("et", IP);
+                startActivity(intent);
+            }
+        });
     }
-   public void getIpDetails(View view){
+  /* public void getIpDetails(View view){
         String tempUrl = "";
         String IP = et.getText().toString().trim();
         if(IP.equals("")){
@@ -71,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
-    }
+    }*/
 
 
 }

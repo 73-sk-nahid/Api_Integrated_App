@@ -44,16 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:onClick="getIpDetails"
             android:text="Button" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="IP Address Location will appear here"
-            android:layout_margin="10sp"
-            android:textColor="@color/black"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
